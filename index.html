@@ -2,10 +2,122 @@
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
-    <title>AI Case Study Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volodymyr Prokuda | AI Case Studies</title>
+    <style>
+        :root {
+            --bg: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-dim: #94a3b8;
+            --accent: #38bdf8;
+        }
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        header {
+            margin-bottom: 60px;
+            border-bottom: 1px solid var(--card-bg);
+            padding-bottom: 20px;
+        }
+        h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        .tagline { color: var(--accent); font-weight: 500; }
+        
+        /* Case Study Styles */
+        .case-study {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            border: 1px solid #334155;
+        }
+        .case-header {
+            border-left: 4px solid var(--accent);
+            padding-left: 20px;
+            margin-bottom: 25px;
+        }
+        h2 { margin: 0; font-size: 1.8rem; }
+        .tech-stack {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+        .tag {
+            background: #0ea5e920;
+            color: var(--accent);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            border: 1px solid #38bdf840;
+        }
+        h3 { color: var(--accent); font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; margin-top: 25px; }
+        p, li { color: var(--text-dim); }
+        .metrics {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            background: #0f172a;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        .metric-item b { color: var(--text-main); display: block; font-size: 1.2rem; }
+    </style>
 </head>
 <body>
-    <h1>Вітаю! Це мій AI Case Study Portfolio</h1>
-    <p>Тут скоро з'являться детальні розбори моїх AI проєктів.</p>
+
+<div class="container">
+    <header>
+        <h1>Volodymyr Prokuda</h1>
+        <p class="tagline">AI Solutions Architect & Developer</p>
+        <p>Портфоліо бізнес-кейсів: від ідеї до впровадження штучного інтелекту.</p>
+    </header>
+
+    <article class="case-study">
+        <div class="case-header">
+            <h2>Автоматизація обробки запитів: AI-аналітик для e-commerce</h2>
+            <div class="tech-stack">
+                <span class="tag">OpenAI API (GPT-4o)</span>
+                <span class="tag">Python</span>
+                <span class="tag">Pinecone (RAG)</span>
+                <span class="tag">LangChain</span>
+            </div>
+        </div>
+
+        <h3>Проблема</h3>
+        <p>Клієнт отримував понад 500 запитів на день. Саппорт не встигав відповідати, що призводило до втрати 15% потенційних продажів через довге очікування.</p>
+
+        <h3>Рішення</h3>
+        <p>Розроблено систему на базі RAG (Retrieval-Augmented Generation). ШІ аналізує базу знань компанії та надає точну відповідь за < 2 секунди. Якщо запит критичний — система автоматично створює тікет для людини.</p>
+
+        <h3>Технічні виклики</h3>
+        <ul>
+            <li><b>Галюцинації:</b> Впроваджено double-check верифікацію відповідей через окремий промпт-валідатор.</li>
+            <li><b>Контекст:</b> Налаштовано стиснення історії діалогу для економії токенів без втрати сенсу.</li>
+        </ul>
+
+        <div class="metrics">
+            <div class="metric-item">
+                <b>-70%</b>
+                <span>Навантаження на саппорт</span>
+            </div>
+            <div class="metric-item">
+                <b>+22%</b>
+                <span>Конверсія в покупку</span>
+            </div>
+        </div>
+    </article>
+    </div>
+
 </body>
 </html>
