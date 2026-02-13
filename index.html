@@ -82,8 +82,14 @@
         /* Footer */
         footer { margin-top: 80px; padding: 40px 0; text-align: center; border-top: 1px solid #334155; color: var(--text-dim); }
 
-        /* Hide elements based on language */
-        [lang="en"] { display: none; }
+        /* Налаштування мов за замовчуванням */
+        .en { display: none; } /* Англійська прихована */
+        .ua { display: block; } /* Українська видима */
+
+        /* Спеціальний фікс для заголовків h1 та інших блокових елементів */
+        h1.ua, h1.en, p.ua, p.en, div.ua, div.en {
+            display: inherit;
+        }
     </style>
 </head>
 <body>
@@ -178,20 +184,30 @@
 
 <script>
     let currentLang = 'ua';
+
     function switchLang() {
         const uaElements = document.querySelectorAll('.ua');
         const enElements = document.querySelectorAll('.en');
         
         if (currentLang === 'ua') {
+            // Перемикаємо на EN
             uaElements.forEach(el => el.style.display = 'none');
             enElements.forEach(el => el.style.display = 'block');
             currentLang = 'en';
         } else {
+            // Перемикаємо на UA
             uaElements.forEach(el => el.style.display = 'block');
             enElements.forEach(el => el.style.display = 'none');
             currentLang = 'ua';
         }
     }
+
+    // Запускаємо один раз при завантаженні, щоб точно все приховати
+    window.onload = function() {
+        if (currentLang === 'ua') {
+            document.querySelectorAll('.en').forEach(el => el.style.display = 'none');
+        }
+    };
 </script>
 
 </body>
