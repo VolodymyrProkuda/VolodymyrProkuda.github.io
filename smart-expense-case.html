@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Expense AI Case Study | Volodymyr Prokuda</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS такий самий, як на головній, для консистентності */
+        :root { --bg: #0f172a; --card-bg: #1e293b; --text-main: #f8fafc; --text-dim: #94a3b8; --accent: #38bdf8; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg); color: var(--text-main); line-height: 1.7; padding: 0; margin: 0; }
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+        a { text-decoration: none; }
+        
+        /* Навігація назад */
+        .back-link { display: inline-block; color: var(--accent); margin-bottom: 40px; font-weight: 600; }
+        .back-link:hover { text-decoration: underline; }
+
+        /* Заголовок кейсу */
+        .case-title-block { border-bottom: 1px solid #334155; padding-bottom: 30px; margin-bottom: 40px; }
+        h1 { font-size: 2.8rem; margin: 0 0 20px 0; }
+        .tech-stack { display: flex; gap: 10px; flex-wrap: wrap; }
+        .tag { background: #0ea5e920; color: var(--accent); padding: 6px 14px; border-radius: 20px; font-size: 0.9rem; font-weight: 500; border: 1px solid #38bdf840; }
+
+        /* Контент кейсу */
+        h2 { color: var(--text-main); font-size: 1.8rem; margin-top: 50px; border-left: 4px solid var(--accent); padding-left: 15px; }
+        h3 { color: var(--accent); font-size: 1.3rem; margin-top: 30px; }
+        p, li { color: var(--text-dim); font-size: 1.1rem; }
+        ul { padding-left: 20px; }
+        li { margin-bottom: 10px; }
+        b { color: var(--text-main); }
+
+        /* Блок для скріншотів (поки заглушка) */
+        .screenshot-placeholder {
+            background: #1e293b; border: 2px dashed #334155; border-radius: 12px;
+            height: 400px; display: flex; align-items: center; justify-content: center;
+            color: var(--text-dim); font-size: 1.2rem; margin: 40px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <a href="index.html" class="back-link">← На Головну</a>
+
+    <article>
+        <div class="case-title-block">
+            <h1>Smart Expense AI: Комплексний фінансовий менеджер</h1>
+            <div class="tech-stack">
+                <span class="tag">Flutter (Bloc/Provider)</span>
+                <span class="tag">Gemini Flash 2.5 (OCR & Analysis)</span>
+                <span class="tag">SQFlite (Local DB)</span>
+                <span class="tag">fl_chart</span>
+            </div>
+        </div>
+
+        <div class="screenshot-placeholder">
+            [Тут будуть скріншоти: Dashboard, Камера з чеком, Графіки]
+        </div>
+
+        <h2>Бізнес-Проблема</h2>
+        <p>Більшість додатків для обліку фінансів вимагають ручного введення даних, що втомлює користувачів і призводить до відмови від ведення бюджету. Існуючі сканери чеків часто помиляються або не дають аналітики, а просто зберігають цифри.</p>
+
+        <h2>AI-Рішення та Архітектура</h2>
+        <p>Було розроблено інтелектуальну систему, яка поєднує локальне зберігання даних для швидкості та конфіденційності з потужністю хмарного ШІ для аналізу.</p>
+        
+        <h3>AI Core (Gemini Flash)</h3>
+        <p>Ми відмовилися від традиційних OCR систем на користь мультимодальної моделі Gemini. Вона не просто "читає текст", а розуміє контекст чека. На виході ми отримуємо чистий JSON-об'єкт, навіть якщо чек пом'ятий або погано освітлений.</p>
+
+        <h3>Локальна База Даних (SQFlite)</h3>
+        <p>Для забезпечення роботи офлайн та миттєвого доступу до історії транзакцій реалізовано складну схему локальної бази даних з таблицями для витрат, категорій та AI-інсайтів.</p>
+
+        <h3>AI Фінансовий Коуч</h3>
+        <p>Окремий модуль аналізує історичні дані користувача і замість сухих цифр видає "людські" поради. Наприклад: <i>"Цього місяця ви витратили на 30% більше на каву, ніж зазвичай. Якщо так піде далі, ви перевищите ліміт через 5 днів"</i>.</p>
+
+        <h2>Технічні Виклики та Реалізація</h2>
+        <ul>
+            <li><b>Обробка неструктурованих даних:</b> Чеки різних магазинів мають різний формат. Використання Gemini з few-shot промптингом дозволило уніфікувати вихідні дані у стандартизований JSON.</li>
+            <li><b>Складна візуалізація:</b> Використано бібліотеку `fl_chart` для побудови інтерактивних графіків (Pie Chart, Line Chart) з можливістю фільтрації по періодах у реальному часі.</li>
+            <li><b>Офлайн-режим:</b> Реалізовано чергу завдань. Якщо немає інтернету, фото чека зберігається локально і обробляється ШІ автоматично при відновленні зв'язку.</li>
+        </ul>
+
+    </article>
+</div>
+
+</body>
+</html>
