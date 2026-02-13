@@ -3,121 +3,190 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Volodymyr Prokuda | AI Case Studies</title>
+    <title>Volodymyr Prokuda | AI Mobile Architect</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #0f172a;
-            --card-bg: #1e293b;
-            --text-main: #f8fafc;
-            --text-dim: #94a3b8;
-            --accent: #38bdf8;
+            --bg: #0f172a; /* Глибокий темний фон */
+            --card-bg: #1e293b; /* Фон карток */
+            --text-main: #f8fafc; /* Основний текст */
+            --text-dim: #94a3b8; /* Другорядний текст */
+            --accent: #38bdf8; /* Яскравий акцент (блакитний) */
+            --accent-hover: #0ea5e9; /* Акцент при наведенні */
         }
         body {
-            font-family: 'Inter', -apple-system, sans-serif;
+            font-family: 'Inter', sans-serif;
             background-color: var(--bg);
             color: var(--text-main);
             line-height: 1.6;
             margin: 0;
-            padding: 40px 20px;
+            padding: 0;
         }
         .container {
-            max-width: 800px;
+            max-width: 1000px;
             margin: 0 auto;
+            padding: 40px 20px;
         }
+        /* Header Section */
         header {
             margin-bottom: 60px;
-            border-bottom: 1px solid var(--card-bg);
-            padding-bottom: 20px;
+            text-align: center;
+            padding: 40px 0;
+            border-bottom: 1px solid #334155;
         }
-        h1 { font-size: 2.5rem; margin-bottom: 10px; }
-        .tagline { color: var(--accent); font-weight: 500; }
-        
-        /* Case Study Styles */
-        .case-study {
-            background: var(--card-bg);
+        h1 { font-size: 3rem; margin-bottom: 10px; letter-spacing: -1px; }
+        .tagline { color: var(--accent); font-weight: 500; font-size: 1.5rem; margin-bottom: 20px; }
+        .intro-text { max-width: 700px; margin: 0 auto; color: var(--text-dim); font-size: 1.1rem; }
+
+        /* Value Proposition Section */
+        .value-prop {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
             padding: 30px;
-            border-radius: 12px;
-            margin-bottom: 40px;
-            border: 1px solid #334155;
+            border-radius: 16px;
+            border: 1px solid var(--accent);
+            margin-bottom: 60px;
+            text-align: center;
         }
-        .case-header {
-            border-left: 4px solid var(--accent);
-            padding-left: 20px;
-            margin-bottom: 25px;
-        }
-        h2 { margin: 0; font-size: 1.8rem; }
-        .tech-stack {
-            display: flex;
-            gap: 10px;
-            margin-top: 10px;
-            flex-wrap: wrap;
-        }
-        .tag {
-            background: #0ea5e920;
-            color: var(--accent);
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            border: 1px solid #38bdf840;
-        }
-        h3 { color: var(--accent); font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; margin-top: 25px; }
-        p, li { color: var(--text-dim); }
-        .metrics {
+        .value-prop h2 { color: var(--accent); margin-top: 0; }
+
+        /* Projects Grid */
+        .section-title { text-align: center; margin-bottom: 40px; font-size: 2rem; }
+        .projects-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            background: #0f172a;
-            padding: 20px;
-            border-radius: 8px;
-            margin-top: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
         }
-        .metric-item b { color: var(--text-main); display: block; font-size: 1.2rem; }
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #334155;
+            transition: transform 0.2s, border-color 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+        .card-content { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
+        .card-content h3 { margin-top: 0; margin-bottom: 15px; font-size: 1.4rem; }
+        .tech-stack { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
+        .tag {
+            background: #0ea5e920; color: var(--accent); padding: 4px 10px;
+            border-radius: 20px; font-size: 0.75rem; font-weight: 500;
+        }
+        .card-description { color: var(--text-dim); margin-bottom: 25px; flex-grow: 1; }
+        
+        /* Button Style */
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: var(--accent);
+            color: var(--bg);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 700;
+            text-align: center;
+            transition: background-color 0.2s;
+        }
+        .btn:hover { background-color: var(--accent-hover); }
+        .btn-outline {
+             background-color: transparent;
+             border: 2px solid var(--accent);
+             color: var(--accent);
+        }
+         .btn-outline:hover { background-color: var(--accent); color: var(--bg); }
+
+        /* Footer */
+        footer { margin-top: 80px; text-align: center; color: var(--text-dim); font-size: 0.9rem; }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <header>
+<header>
+    <div class="container">
         <h1>Volodymyr Prokuda</h1>
-        <p class="tagline">AI Solutions Architect & Developer</p>
-        <p>Портфоліо бізнес-кейсів: від ідеї до впровадження штучного інтелекту.</p>
-    </header>
-
-    <article class="case-study">
-        <div class="case-header">
-            <h2>Автоматизація обробки запитів: AI-аналітик для e-commerce</h2>
-            <div class="tech-stack">
-                <span class="tag">OpenAI API (GPT-4o)</span>
-                <span class="tag">Python</span>
-                <span class="tag">Pinecone (RAG)</span>
-                <span class="tag">LangChain</span>
-            </div>
-        </div>
-
-        <h3>Проблема</h3>
-        <p>Клієнт отримував понад 500 запитів на день. Саппорт не встигав відповідати, що призводило до втрати 15% потенційних продажів через довге очікування.</p>
-
-        <h3>Рішення</h3>
-        <p>Розроблено систему на базі RAG (Retrieval-Augmented Generation). ШІ аналізує базу знань компанії та надає точну відповідь за < 2 секунди. Якщо запит критичний — система автоматично створює тікет для людини.</p>
-
-        <h3>Технічні виклики</h3>
-        <ul>
-            <li><b>Галюцинації:</b> Впроваджено double-check верифікацію відповідей через окремий промпт-валідатор.</li>
-            <li><b>Контекст:</b> Налаштовано стиснення історії діалогу для економії токенів без втрати сенсу.</li>
-        </ul>
-
-        <div class="metrics">
-            <div class="metric-item">
-                <b>-70%</b>
-                <span>Навантаження на саппорт</span>
-            </div>
-            <div class="metric-item">
-                <b>+22%</b>
-                <span>Конверсія в покупку</span>
-            </div>
-        </div>
-    </article>
+        <p class="tagline">AI Mobile Solutions Architect</p>
+        <p class="intro-text">
+            Поєдную академічний бекграунд, 3 роки нативної Android-розробки (Kotlin) та сучасний кросплатформний стек (Flutter). Створюю не просто додатки, а інтелектуальні системи, де ШІ є ядром функціонала.
+        </p>
     </div>
+</header>
+
+<main class="container">
+    <section class="value-prop">
+        <h2>🚀 AI-Accelerated Development</h2>
+        <p>
+            Я використовую налагоджений пайплайн розробки з AI-агентами. 
+            Те, на що інші витрачають місяць, я реалізую за 10 днів. 
+            Ви отримуєте архітектуру рівня Senior зі швидкістю стартапу.
+        </p>
+    </section>
+
+    <h2 class="section-title">Вибрані AI Кейси</h2>
+    <div class="projects-grid">
+
+        <article class="project-card">
+            <div class="card-content">
+                <h3>Smart Expense AI: Фінансовий Коуч</h3>
+                <div class="tech-stack">
+                    <span class="tag">Flutter</span>
+                    <span class="tag">Gemini Flash (OCR)</span>
+                    <span class="tag">SQFlite</span>
+                    <span class="tag">AI Analytics</span>
+                </div>
+                <p class="card-description">Комплексна система управління фінансами. Розпізнавання складних чеків по фото, локальна база даних, складна візуалізація графіків та стратегічні поради від ШІ-коуча.</p>
+                <a href="smart-expense-case.html" class="btn">Дивитися Кейс</a>
+            </div>
+        </article>
+        
+         <article class="project-card">
+            <div class="card-content">
+                <h3>Smart Chef: Генератор рецептів</h3>
+                <div class="tech-stack">
+                    <span class="tag">Flutter</span>
+                    <span class="tag">Gemini Vision API</span>
+                </div>
+                <p class="card-description">Додаток, що "бачить" вміст холодильника по фото та генерує персоналізовані рецепти з наявних інгредієнтів.</p>
+                <a href="smart-chef-case.html" class="btn btn-outline">Дивитися Кейс</a>
+            </div>
+        </article>
+
+        <article class="project-card">
+            <div class="card-content">
+                <h3>AI Cleaning Optimizer</h3>
+                <div class="tech-stack">
+                    <span class="tag">Flutter</span>
+                    <span class="tag">Gemini Vision</span>
+                    <span class="tag">Алгоритми планування</span>
+                </div>
+                <p class="card-description">Аналіз безладу в кімнаті по фото та створення оптимізованого, покрокового плану прибирання за допомогою ШІ.</p>
+                 <a href="cleaning-case.html" class="btn btn-outline">Дивитися Кейс</a>
+            </div>
+        </article>
+
+        <article class="project-card">
+            <div class="card-content">
+                <h3>PhytoScan: Розпізнавання рослин</h3>
+                <div class="tech-stack">
+                    <span class="tag">Flutter</span>
+                    <span class="tag">Gemini Pro Vision</span>
+                    <span class="tag">Botanical Knowledge Base</span>
+                </div>
+                <p class="card-description">Миттєва ідентифікація рослин за фото та аналіз їх потенційних лікарських властивостей через ШІ-базу знань.</p>
+                 <a href="plant-case.html" class="btn btn-outline">Дивитися Кейс</a>
+            </div>
+        </article>
+
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <p>© 2026 Volodymyr Prokuda. Відкрито до співпраці над AI-native проєктами.</p>
+    </div>
+</footer>
 
 </body>
 </html>
