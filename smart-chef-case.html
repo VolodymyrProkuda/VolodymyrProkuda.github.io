@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Chef Case Study | Volodymyr Prokuda</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg: #0f172a; --card-bg: #1e293b; --text-main: #f8fafc; --text-dim: #94a3b8; --accent: #38bdf8; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg); color: var(--text-main); line-height: 1.7; padding: 0; margin: 0; }
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+        .back-link { display: inline-block; color: var(--accent); margin-bottom: 40px; font-weight: 600; text-decoration: none; }
+        .case-title-block { border-bottom: 1px solid #334155; padding-bottom: 30px; margin-bottom: 40px; }
+        h1 { font-size: 2.8rem; margin: 0 0 20px 0; }
+        .tech-stack { display: flex; gap: 10px; flex-wrap: wrap; }
+        .tag { background: #0ea5e920; color: var(--accent); padding: 6px 14px; border-radius: 20px; font-size: 0.9rem; font-weight: 500; border: 1px solid #38bdf840; }
+        h2 { color: var(--text-main); font-size: 1.8rem; margin-top: 50px; border-left: 4px solid var(--accent); padding-left: 15px; }
+        h3 { color: var(--accent); font-size: 1.3rem; margin-top: 30px; }
+        p, li { color: var(--text-dim); font-size: 1.1rem; }
+        .screenshot-placeholder { background: #1e293b; border: 2px dashed #334155; border-radius: 12px; height: 350px; display: flex; align-items: center; justify-content: center; color: var(--text-dim); margin: 40px 0; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <a href="index.html" class="back-link">← На Головну</a>
+    <article>
+        <div class="case-title-block">
+            <h1>Smart Chef: Генератор рецептів по фото інгредієнтів</h1>
+            <div class="tech-stack">
+                <span class="tag">Flutter</span>
+                <span class="tag">Gemini Vision API</span>
+                <span class="tag">Image Recognition</span>
+            </div>
+        </div>
+
+        <div class="screenshot-placeholder">[Скріншот: Аналіз вмісту холодильника]</div>
+
+        <h2>Проблема</h2>
+        <p>Користувачі часто стикаються з проблемою "що приготувати сьогодні?", маючи обмежений набір продуктів. Харчові відходи зростають через те, що люди не знають, як використати залишки інгредієнтів.</p>
+
+        <h2>Рішення</h2>
+        <p>Додаток використовує <b>Gemini Vision API</b> для розпізнавання об'єктів на фото. Користувач просто фотографує продукти на столі, а ШІ миттєво ідентифікує їх та пропонує список рецептів, які можна приготувати "тут і зараз".</p>
+
+        <h2>Технічні виклики</h2>
+        <ul>
+            <li><b>Точність розпізнавання:</b> Налаштування промптів для диференціації схожих продуктів (наприклад, різних видів сиру або соусів).</li>
+            <li><b>Креативність рецептів:</b> Використання системних інструкцій для того, щоб ШІ пропонував не лише стандартні страви, а й креативні варіанти на основі поєднання смаків.</li>
+        </ul>
+    </article>
+</div>
+</body>
+</html>
