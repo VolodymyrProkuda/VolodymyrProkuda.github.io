@@ -26,16 +26,17 @@
         .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
 
         /* Language Switcher */
-        .lang-switch { text-align: right; padding: 10px 0; }
+        .lang-switch { text-align: right; padding: 10px 0; position: sticky; top: 10px; z-index: 100; }
         .lang-btn {
-            background: none; border: 1px solid var(--accent); color: var(--accent);
-            padding: 5px 15px; cursor: pointer; border-radius: 5px; font-weight: bold;
+            background: #1e293b; border: 1px solid var(--accent); color: var(--accent);
+            padding: 8px 20px; cursor: pointer; border-radius: 25px; font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
         .lang-btn:hover { background: var(--accent); color: var(--bg); }
 
         /* Header & Bio */
         header { text-align: center; padding: 60px 0 40px; border-bottom: 1px solid #334155; }
-        h1 { font-size: clamp(2rem, 5vw, 3.5rem); margin: 0; }
+        h1 { font-size: clamp(2.2rem, 5vw, 3.5rem); margin: 0; }
         .tagline { color: var(--accent); font-size: 1.5rem; font-weight: 600; margin: 10px 0; }
         .phd-badge { background: #1e293b; border: 1px solid #38bdf840; display: inline-block; padding: 5px 15px; border-radius: 50px; font-size: 0.9rem; margin-top: 10px; color: #cbd5e1; }
 
@@ -55,12 +56,12 @@
         .skills-list li { background: #0ea5e920; border: 1px solid #38bdf830; padding: 4px 12px; border-radius: 4px; font-size: 0.9rem; }
 
         /* Case Studies Grid */
-        .section-title { text-align: center; margin: 60px 0 30px; font-size: 2rem; }
+        .section-title { text-align: center; margin: 60px 0 30px; font-size: 2rem; border-bottom: 2px solid #334155; padding-bottom: 10px; }
         .projects-grid {
             display: grid;
-            /* Адаптивність: 1 колонка на мобільних, 2 на планшетах, 3 на десктопах */
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 25px;
+            margin-bottom: 40px;
         }
         .project-card {
             background: var(--card-bg);
@@ -71,25 +72,21 @@
             flex-direction: column;
             padding: 25px;
         }
-        .project-card:hover { transform: translateY(-5px); border-color: var(--accent); }
-        .project-card h3 { margin-top: 0; font-size: 1.3rem; }
+        .project-card:hover { transform: translateY(-5px); border-color: var(--accent); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+        .project-card h3 { margin-top: 0; font-size: 1.3rem; color: var(--accent); }
         .card-desc { color: var(--text-dim); font-size: 0.95rem; flex-grow: 1; margin: 15px 0; }
         .btn {
             display: block; text-align: center; background: var(--accent); color: var(--bg);
-            padding: 10px; border-radius: 6px; text-decoration: none; font-weight: bold;
+            padding: 10px; border-radius: 6px; text-decoration: none; font-weight: bold; transition: 0.2s;
         }
+        .btn:hover { background: var(--accent-hover); }
 
         /* Footer */
         footer { margin-top: 80px; padding: 40px 0; text-align: center; border-top: 1px solid #334155; color: var(--text-dim); }
 
-        /* Налаштування мов за замовчуванням */
-        .en { display: none; } /* Англійська прихована */
-        .ua { display: block; } /* Українська видима */
-
-        /* Спеціальний фікс для заголовків h1 та інших блокових елементів */
-        h1.ua, h1.en, p.ua, p.en, div.ua, div.en {
-            display: inherit;
-        }
+        /* Language visibility */
+        .en { display: none; }
+        .ua { display: block; }
     </style>
 </head>
 <body>
@@ -116,17 +113,17 @@
             <h2 class="en">About Me</h2>
             
             <p class="ua">
-                Викладач ВИШу з науковим ступенем, який поєднав академічну глибину з 3+ роками комерційної розробки. Спеціалізуюсь на створенні інтелектуальних мобільних застосунків (Kotlin/Flutter), де ШІ є частиною бізнес-логіки.
+                Викладач ВИШу з науковим ступенем, який поєднав академічну глибину з 3+ роками комерційної розробки. Спеціалізуюсь на створенні складних нативних рішень та інтелектуальних систем, де ШІ та складні алгоритми стають частиною бізнес-логіки.
             </p>
             <p class="en">
-                University Lecturer with a Ph.D. degree, combining academic depth with 3+ years of commercial development. Specialized in building intelligent mobile applications (Kotlin/Flutter) where AI is the core of business logic.
+                University Lecturer with a Ph.D. degree, combining academic depth with 3+ years of commercial development. Specialized in building complex native solutions and intelligent systems where AI and advanced algorithms drive the business logic.
             </p>
 
             <div class="links-grid">
                 <a href="https://github.com/VolodymyrProkuda" class="link-tag">GitHub</a>
                 <a href="https://www.linkedin.com/in/volodymyr-prokuda-74808823a/" class="link-tag">LinkedIn</a>
                 <a href="https://developers.google.com/profile/u/112583771970918771554" class="link-tag">Google Dev</a>
-                <a href="https://cert.efset.org/Mf5LD6" class="link-tag">English: B2 </a>
+                <a href="https://cert.efset.org/Mf5LD6" class="link-tag">English: B2</a>
             </div>
         </div>
 
@@ -134,19 +131,20 @@
             <h2 class="ua">Технічний стек</h2>
             <h2 class="en">Technical Stack</h2>
             <ul class="skills-list">
-                <li>Flutter & Dart</li>
                 <li>Kotlin (Native Android)</li>
-                <li>AI: Gemini API, OpenAI API, RAG</li>
-                <li>Database: Room, SQLite, MongoDB</li>
-                <li>Architecture: MVVM, BLoC, Provider</li>
-                <li>Tools: Coroutines, Retrofit, Dagger Hilt</li>
+                <li>Flutter & Dart</li>
+                <li>AI: Gemini API, OpenAI, RAG</li>
+                <li>Database: Room, SQLite, Offline-first</li>
+                <li>Architecture: MVVM, Clean Arch</li>
+                <li>Gantt & CPM Algorithms</li>
+                <li>Canvas & Sprite Animation</li>
+                <li>REST API (API-Football, etc)</li>
             </ul>
         </div>
     </div>
 
-    <h2 class="section-title ua">AI Проєкти (Кейси)</h2>
+    <h2 class="section-title ua">ШІ Проєкти (Generative AI)</h2>
     <h2 class="section-title en">AI Case Studies</h2>
-
     <div class="projects-grid">
         <div class="project-card">
             <h3>Smart Expense AI</h3>
@@ -154,26 +152,81 @@
             <p class="en card-desc">Finance automation: receipt recognition via Gemini Flash and AI-powered expense analytics.</p>
             <a href="smart-expense-case.html" class="btn">View Case</a>
         </div>
-
         <div class="project-card">
             <h3>Smart Chef</h3>
             <p class="ua card-desc">Генератор рецептів, що "бачить" інгредієнти у вашому холодильнику через камеру.</p>
             <p class="en card-desc">Recipe generator that "sees" ingredients in your fridge using the camera.</p>
             <a href="smart-chef-case.html" class="btn">View Case</a>
         </div>
-
         <div class="project-card">
             <h3>Cleaning Optimizer</h3>
-            <p class="ua card-desc">ШІ-планувальник прибирання: аналіз простору та створення крокового алгоритму дій.</p>
-            <p class="en card-desc">AI Cleaning Planner: space analysis and step-by-step action algorithm creation.</p>
+            <p class="ua card-desc">ШІ-планувальник прибирання: аналіз простору та створення алгоритму дій через Vision API.</p>
+            <p class="en card-desc">AI Cleaning Planner: space analysis and step-by-step action algorithm via Vision API.</p>
             <a href="cleaning-case.html" class="btn">View Case</a>
         </div>
-
         <div class="project-card">
             <h3>PhytoScan</h3>
-            <p class="ua card-desc">Ідентифікація рослин та аналіз їх лікарських властивостей за допомогою Computer Vision.</p>
+            <p class="ua card-desc">Ідентифікація рослин та аналіз їх властивостей за допомогою Computer Vision.</p>
             <p class="en card-desc">Plant identification and medicinal properties analysis using Computer Vision.</p>
             <a href="plant-case.html" class="btn">View Case</a>
+        </div>
+    </div>
+
+    <h2 class="section-title ua">Аналітичні та Enterprise Рішення</h2>
+    <h2 class="section-title en">Analytical & Enterprise Solutions</h2>
+    <div class="projects-grid">
+        <div class="project-card">
+            <h3>SiteFlow</h3>
+            <p class="ua card-desc">Менеджер будівництва: Gantt-діаграми та розрахунок критичного шляху (CPM) офлайн.</p>
+            <p class="en card-desc">Construction Manager: Gantt charts and Critical Path Method (CPM) calculation offline.</p>
+            <a href="siteflow-case.html" class="btn">View Case</a>
+        </div>
+        <div class="project-card">
+            <h3>GoalScope</h3>
+            <p class="ua card-desc">Футбольна аналітика: робота з великим REST API та Live-оновленнями даних.</p>
+            <p class="en card-desc">Football Analytics: handling massive REST API and Live data updates via polling.</p>
+            <a href="goalscope-case.html" class="btn">View Case</a>
+        </div>
+        <div class="project-card">
+            <h3>FootyLog</h3>
+            <p class="ua card-desc">Трекер матчів: складна доменна логіка, live-таймер та агрегація статистики офлайн.</p>
+            <p class="en card-desc">Match Tracker: complex domain logic, live-timer, and offline statistics aggregation.</p>
+            <a href="footylog-case.html" class="btn">View Case</a>
+        </div>
+        <div class="project-card">
+            <h3>CourtSense</h3>
+            <p class="ua card-desc">Тенісний хаб: архітектура для збору та візуалізації спортивних KPI.</p>
+            <p class="en card-desc">Tennis Hub: architecture for collecting and visualizing sports performance KPIs.</p>
+            <a href="courtsense-case.html" class="btn">View Case</a>
+        </div>
+    </div>
+
+    <h2 class="section-title ua">Гейміфікація та Інтерактиви</h2>
+    <h2 class="section-title en">Gamified & Interactive Apps</h2>
+    <div class="projects-grid">
+        <div class="project-card">
+            <h3>Chumba Buddy</h3>
+            <p class="ua card-desc">Продуктивність: анімована рулетка задач (Canvas) та казино-стиль гейміфікації.</p>
+            <p class="en card-desc">Productivity: animated task roulette (Canvas) and casino-style gamification.</p>
+            <a href="chumba-buddy-case.html" class="btn">View Case</a>
+        </div>
+        <div class="project-card">
+            <h3>FitNatural</h3>
+            <p class="ua card-desc">Health-трекер: система нагадувань (WorkManager) та графіки прогресу прийому добавок.</p>
+            <p class="en card-desc">Health tracker: reminder system (WorkManager) and supplement progress charts.</p>
+            <a href="fitnatural-case.html" class="btn">View Case</a>
+        </div>
+        <div class="project-card">
+            <h3>Спритні Спрайти</h3>
+            <p class="ua card-desc">Arcade Game: нативні анімації View (60 FPS) та система ігрових досягнень.</p>
+            <p class="en card-desc">Arcade Game: native View animations (60 FPS) and game achievement system.</p>
+            <a href="sprites-case.html" class="btn">View Case</a>
+        </div>
+        <div class="project-card">
+            <h3>Spooky Puzzles</h3>
+            <p class="ua card-desc">Casual Game: механіки пазлів та ігрова економіка в Halloween-стилістиці.</p>
+            <p class="en card-desc">Casual Game: puzzle mechanics and in-game economy in Halloween style.</p>
+            <a href="spooky-puzzles-case.html" class="btn">View Case</a>
         </div>
     </div>
 </div>
@@ -190,23 +243,18 @@
         const enElements = document.querySelectorAll('.en');
         
         if (currentLang === 'ua') {
-            // Перемикаємо на EN
             uaElements.forEach(el => el.style.display = 'none');
             enElements.forEach(el => el.style.display = 'block');
             currentLang = 'en';
         } else {
-            // Перемикаємо на UA
             uaElements.forEach(el => el.style.display = 'block');
             enElements.forEach(el => el.style.display = 'none');
             currentLang = 'ua';
         }
     }
 
-    // Запускаємо один раз при завантаженні, щоб точно все приховати
     window.onload = function() {
-        if (currentLang === 'ua') {
-            document.querySelectorAll('.en').forEach(el => el.style.display = 'none');
-        }
+        document.querySelectorAll('.en').forEach(el => el.style.display = 'none');
     };
 </script>
 
